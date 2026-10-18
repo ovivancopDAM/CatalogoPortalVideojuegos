@@ -104,14 +104,33 @@
                     <Button Content="SOPORTE" Style="{StaticResource SteamNavButton}"/>
                 </StackPanel>
 
-                <!-- Avatar & Perfil estilo Gamer -->
-                <Border HorizontalAlignment="Right" VerticalAlignment="Center" CornerRadius="14" Padding="12,5" Background="#1B2138" BorderBrush="#323C63" BorderThickness="1">
-                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                        <Ellipse Width="8" Height="8" Fill="#00FFA3" Margin="0,0,8,0"/>
-                        <Button Content="mi perfil" FontStyle="Italic" FontWeight="Bold" FontSize="13" Foreground="#E2E8F0"
-                                Cursor="Hand" Background="Transparent" BorderThickness="0"/>
-                    </StackPanel>
-                </Border>
+                <!-- Avatar & Perfil + Cerrar Sesión -->
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+                    <Border CornerRadius="14" Padding="12,5" Background="#1B2138" BorderBrush="#323C63" BorderThickness="1">
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                            <Ellipse Width="8" Height="8" Fill="#00FFA3" Margin="0,0,8,0"/>
+                            <Button Content="mi perfil" FontStyle="Italic" FontWeight="Bold" FontSize="13" Foreground="#E2E8F0"
+                                    Cursor="Hand" Background="Transparent" BorderThickness="0"/>
+                        </StackPanel>
+                    </Border>
+
+                    <Button x:Name="btnCerrarSesion" Content="Cerrar Sesión" Click="btnCerrarSesion_Click"
+                            Margin="10,0,0,0" Cursor="Hand" Foreground="#FF6B6B" FontWeight="SemiBold" FontSize="12">
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border x:Name="logoutBorder" CornerRadius="14" Padding="12,6"
+                                        Background="Transparent" BorderBrush="#FF6B6B" BorderThickness="1">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter TargetName="logoutBorder" Property="Background" Value="#3A1E26"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                </StackPanel>
             </Grid>
         </Border>
 
@@ -135,7 +154,7 @@
                 </StackPanel>
             </Border>
 
-            <!-- Contenedor Principal: GroupBox evaluable con fondo gamer -->
+            <!-- Contenedor Principal --> 
             <Border Grid.Column="1" CornerRadius="22" BorderBrush="#252E4D" BorderThickness="1" Background="#141829" Margin="0,0,10,10" Padding="20">
                 <Border.Effect>
                     <DropShadowEffect BlurRadius="20" ShadowDepth="4" Direction="270" Opacity="0.3" Color="#000000"/>
@@ -143,7 +162,6 @@
 
                 <GroupBox Header="Catálogo de Juegos" BorderThickness="0" Foreground="#00D2FF" FontWeight="Bold" FontSize="17">
                     <Grid VerticalAlignment="Center">
-                        <!-- Fila de Tarjetas estilo Steam -->
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,15,0,0">
 
                             <!-- TARJETA 1: SILKSONG -->
@@ -156,10 +174,7 @@
                                         <RowDefinition Height="240"/>
                                         <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
-
-                                    <!-- Imagen Silksong con ruta absoluta relativa a la raíz -->
-                                    <Image Grid.Row="0" Source="/Assets/Code_Generated_Image.png" Stretch="UniformToFill"/>
-
+                                    <Image Grid.Row="0" Source="pack://application:,,,/Assets/rocket_league.png" Stretch="UniformToFill"/>
                                     <Border Grid.Row="1" Background="#111524" Padding="12,8">
                                         <Grid>
                                             <StackPanel VerticalAlignment="Center">
@@ -182,10 +197,7 @@
                                         <RowDefinition Height="240"/>
                                         <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
-
-                                    <!-- Imagen Valorant -->
-                                    <Image Grid.Row="0" Source="/Assets/Code_Generated_Image (1).png" Stretch="UniformToFill"/>
-
+                                    <Image Grid.Row="0" Source="pack://application:,,,/Assets/valorant.png" Stretch="UniformToFill"/>
                                     <Border Grid.Row="1" Background="#111524" Padding="12,8">
                                         <Grid>
                                             <StackPanel VerticalAlignment="Center">
@@ -208,10 +220,7 @@
                                         <RowDefinition Height="240"/>
                                         <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
-
-                                    <!-- Imagen Rocket League -->
-                                    <Image Grid.Row="0" Source="/Assets/Code_Generated_Image (2).png" Stretch="UniformToFill"/>
-
+                                    <Image Grid.Row="0" Source="pack://application:,,,/Assets/silksong.png" Stretch="UniformToFill"/>
                                     <Border Grid.Row="1" Background="#111524" Padding="12,8">
                                         <Grid>
                                             <StackPanel VerticalAlignment="Center">
